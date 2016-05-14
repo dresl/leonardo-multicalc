@@ -7,7 +7,7 @@ from leonardo.module.web.models import Page
 
 class MultiCalculatorWidget(Widget):
 
-    color = models.CharField(verbose_name=_("Description"), max_length=255, blank=True)
+    color = models.CharField(verbose_name=_("Color"), max_length=255, blank=True)
 
     class Meta:
         abstract = True
