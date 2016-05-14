@@ -23,6 +23,6 @@ class Default(object):
 
 class Config(AppConfig, Default):
     name = 'leonardo_multicalc'
-    verbose_name = _("IconLink")
+    verbose_name = _("MultiCalc")
 
 default = Default()
