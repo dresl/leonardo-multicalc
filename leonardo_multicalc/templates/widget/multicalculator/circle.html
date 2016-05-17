@@ -9,15 +9,16 @@ function countOne()
     var div_radius = document.getElementById('div_radius');
     var a = parseFloat(radius_one.value);
     var radius = a;
-    div_radius.innerHTML = radius;
+    div_radius.innerHTML = radius.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
     var circuit = 2*Math.PI*radius;
-    div_circuit.innerHTML = circuit;
+    div_circuit.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
 
     document.getElementById('radius').value = radius;
     document.getElementById('circuit').value = circuit;
     document.getElementById('section_1').style.display = "none";
     document.getElementById('section_2').style.display = "block";
     document.getElementById('area_count').style.display = "block";
+    document.getElementById('back_radius').style.display = "block";
 }
 
 function countArea()
@@ -26,17 +27,50 @@ function countArea()
     var circuit = parseFloat(document.getElementById("circuit").value);
     document.getElementById('section_2').style.display = "none";
     document.getElementById('section_3').style.display = "block";
-    div_radius_two.innerHTML = radius;
-    div_circuit_two.innerHTML = circuit;
+    div_radius_two.innerHTML = radius.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    div_circuit_two.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
     var area = parseFloat(Math.PI)*Math.pow(radius,2);
-    div_area.innerHTML = area;
+    div_area.innerHTML = area.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
     document.getElementById('area_count').style.display = "none";
+    document.getElementById('back_circuit').style.display = "block";
+    document.getElementById('back_radius').style.display = "none";
+}
+
+function BackToCircuit()
+{
+    var radius_one = document.getElementById("radius_one");
+    var div_radius = document.getElementById('div_radius');
+    var a = parseFloat(radius_one.value);
+    var radius = a;
+    div_radius.innerHTML = radius.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    var circuit = 2*Math.PI*radius;
+    div_circuit.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+
+    document.getElementById('radius').value = radius;
+    document.getElementById('circuit').value = circuit;
+    document.getElementById('section_1').style.display = "none";
+    document.getElementById('section_2').style.display = "block";
+    document.getElementById('section_3').style.display = "none";
+    document.getElementById('area_count').style.display = "block";
+    document.getElementById('back_circuit').style.display = "none";
+    document.getElementById('back_radius').style.display = "block";
+}
+
+function BackToRadius()
+{
+    document.getElementById('back_radius').style.display = "none";
+    document.getElementById('section_1').style.display = "block";
+    document.getElementById('section_2').style.display = "none";
+    document.getElementById('section_3').style.display = "none";
+    document.getElementById('area_count').style.display = "none";
+    document.getElementById('back_circuit').style.display = "none";
 }
 
 </script>
 <div id="section_1">
-Enter a number: <input style="color: black" type="number" id="radius_one">
-<input style="color: black" type=button value="Count circuit" onClick="countOne()">
+Enter a number: <input style="color: black" type="number" onkeydown = "if (event.keyCode == 13)
+                                document.getElementById('circuit_count').click()" id="radius_one">
+<input id="circuit_count" class="btn btn-default" type=button value="Count circuit" onClick="countOne()">
 </div>
 
 <input style="color: black" type="hidden" id="radius" value="" />
@@ -79,7 +113,10 @@ Enter a number: <input style="color: black" type="number" id="radius_one">
     </tbody>
 </table>
 </div>
-
-<input id="area_count"  style="display:none;" class="btn btn-default" type=button value="Count area of circle" onClick="countArea()">
+<input style="color: black" type="hidden" onkeydown = "if (event.keyCode == 13)
+                                document.getElementById('area_count').click()" id="">
+<input id="area_count" style="display:none;" class="btn btn-default" type=button value="Count area of circle" onClick="countArea()">
+<input id="back_circuit" style="display:none;" class="btn btn-default" type=button value="Back" onClick="BackToCircuit()">
+<input id="back_radius" style="display:none;" class="btn btn-default" type=button value="Back" onClick="BackToRadius()">
 
 {% endblock content %}
