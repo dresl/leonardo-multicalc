@@ -6,7 +6,7 @@
   margin: 100px auto;
   padding: 20px 20px 9px;
   
-  background: transparent linear-gradient($primary, $primary-darken) repeat scroll 0% 0%;
+  background: transparent linear-gradient(#059cba, #026e82) repeat scroll 0% 0%;
   border-radius: 3px;
   box-shadow: 0px 4px #043C30, 0px 10px 15px rgba(0, 0, 0, 0.2);
 }
@@ -92,19 +92,19 @@
 
 /* Some hover effects */
 .keys span:hover {
-  background: #A8B7A8;
+  background: #b4edf7;
   box-shadow: 0px 4px #0C7C44;
   color: #000;
 }
 
 .keys span.eval:hover {
-  background: #abb850;
-  box-shadow: 0px 4px #717a33;
+  background: #026e82;
+  box-shadow: 0px 4px #b4edf7;
   color: #000;
 }
 
 .top span.clear:hover {
-  box-shadow: 0px 4px #921621;
+  box-shadow: 0px 4px #b4edf7;
   color: #000;
 }
 

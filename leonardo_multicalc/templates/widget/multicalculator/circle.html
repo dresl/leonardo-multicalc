@@ -1,0 +1,84 @@
+{% extends widget.get_base_template %}
+
+{% block content %}
+
+<script>
+function countOne()
+{
+    var radius_one = document.getElementById("radius_one");
+    var div_radius = document.getElementById('div_radius');
+    var a = parseFloat(radius_one.value);
+    var radius = a;
+    div_radius.innerHTML = radius;
+    var circuit = 2*Math.PI*radius;
+    div_circuit.innerHTML = circuit;
+
+    document.getElementById('radius').value = radius;
+    document.getElementById('circuit').value = circuit;
+    document.getElementById('section_1').style.display = "none";
+    document.getElementById('section_2').style.display = "block";
+    document.getElementById('area_count').style.display = "block";
+}
+
+function countArea()
+{
+    var radius = parseFloat(document.getElementById("radius").value);
+    var circuit = parseFloat(document.getElementById("circuit").value);
+    document.getElementById('section_2').style.display = "none";
+    document.getElementById('section_3').style.display = "block";
+    div_radius_two.innerHTML = radius;
+    div_circuit_two.innerHTML = circuit;
+    var area = parseFloat(Math.PI)*Math.pow(radius,2);
+    div_area.innerHTML = area;
+}
+
+</script>
+<div id="section_1">
+Enter a number: <input style="color: black" type="number" id="radius_one">
+<input style="color: black" type=button value="Count circuit" onClick="countOne()">
+</div>
+
+<input style="color: black" type="hidden" id="radius" value="" />
+<input style="color: black" type="hidden" id="circuit" value="" />
+
+<div style="display: none;" id="section_2">
+<table width="320px" class="table table-bordered">
+    <thead>
+        <tr>
+            <td style="padding: 4px 8px; font-weight: bold">Radius:</td>
+            <td style="padding: 4px 8px; font-weight: bold"><i id="div_radius"></i> cm</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 4px 8px">Circuit:</td>
+            <td style="padding: 4px 8px"><i id="div_circuit"></i> cm</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div style="display: none;" id="section_3">
+<table width="320px" class="table table-bordered">
+    <thead>
+        <tr>
+            <td style="padding: 4px 8px; font-weight: bold">Radius:</td>
+            <td style="padding: 4px 8px; font-weight: bold"><i id="div_radius_two"></i> cm</td>
+        </tr>
+        <tr>
+            <td style="padding: 4px 8px; font-weight: bold">Circuit:</td>
+            <td style="padding: 4px 8px; font-weight: bold"><i id="div_circuit_two"></i> cm</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 4px 8px">Area:</td>
+            <td style="padding: 4px 8px"><i id="div_area"></i> cm<sup>2</sup></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<input id="area_count"  style="display:none;" class="btn btn-default" type=button value="Count area of circle" onClick="countArea()">
+
+{% endblock content %}
