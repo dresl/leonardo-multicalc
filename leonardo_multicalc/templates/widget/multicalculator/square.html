@@ -6,14 +6,12 @@
 function countCircuit()
 {
     var part_def = document.getElementById("part_def");
-    var div_part = document.getElementById("div_part");
-    var a = parseFloat(part_def.value);
-    var radius = a;
-    div_part.innerHTML = radius.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    var circuit = 2*Math.PI*radius;
+    var part = parseFloat(part_def.value);
+    var circuit = 4*part;
+    div_part.innerHTML = part.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
     div_circuit.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
 
-    document.getElementById("radius").value = radius;
+    document.getElementById("part").value = part;
     document.getElementById("circuit").value = circuit;
     document.getElementById("section_1").style.display = "none";
     document.getElementById("section_2").style.display = "block";
@@ -23,55 +21,41 @@ function countCircuit()
 
 function countArea()
 {
-    var radius = parseFloat(document.getElementById("radius").value);
+    var part = parseFloat(document.getElementById("part").value);
     var circuit = parseFloat(document.getElementById("circuit").value);
+    var area = part*part;
+    div_part_two.innerHTML = part.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    div_circuit_two.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    div_area.innerHTML = area.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
     document.getElementById("section_2").style.display = "none";
     document.getElementById("section_3").style.display = "block";
-    div_part_two.innerHTML = radius.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    div_circuit_two.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    var area = parseFloat(Math.PI)*Math.pow(radius,2);
-    div_area.innerHTML = area.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
     document.getElementById("area_count").style.display = "none";
+    document.getElementById("diagonal_count").style.display = "block";
     document.getElementById("back_circuit").style.display = "block";
     document.getElementById("back_part").style.display = "none";
+    document.getElementById("area").value = area;
 }
 
 function countDiagonal()
 {
-    var radius = parseFloat(document.getElementById("radius").value);
+    var part = parseFloat(document.getElementById("part").value);
     var circuit = parseFloat(document.getElementById("circuit").value);
-    document.getElementById("section_2").style.display = "none";
-    document.getElementById("section_3").style.display = "block";
-    div_part_two.innerHTML = radius.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    div_circuit_two.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    var area = parseFloat(Math.PI)*Math.pow(radius,2);
-    div_area.innerHTML = area.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    var area = parseFloat(document.getElementById("area").value);
+    var diagonal = part*Math.sqrt(2);
+    div_part_three.innerHTML = part.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    div_circuit_three.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    div_area_two.innerHTML = area.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    div_diagonal.innerHTML = diagonal.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    document.getElementById("section_3").style.display = "none";
+    document.getElementById("section_4").style.display = "block";
     document.getElementById("area_count").style.display = "none";
-    document.getElementById("back_circuit").style.display = "block";
+    document.getElementById("diagonal_count").style.display = "none";
+    document.getElementById("back_area").style.display = "block";
+    document.getElementById("back_circuit").style.display = "none";
     document.getElementById("back_part").style.display = "none";
 }
 
-function BackToCircuit()
-{
-    var part_def = document.getElementById("part_def");
-    var div_part =document.getElementById("div_part");
-    var a = parseFloat(part_def.value);
-    var radius = a;
-    div_part.innerHTML = radius.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    var circuit = 2*Math.PI*radius;
-    div_circuit.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-
-    document.getElementById("radius").value = radius;
-    document.getElementById("circuit").value = circuit;
-    document.getElementById("section_1").style.display = "none";
-    document.getElementById("section_2").style.display = "block";
-    document.getElementById("section_3").style.display = "none";
-    document.getElementById("area_count").style.display = "block";
-    document.getElementById("back_circuit").style.display = "none";
-    document.getElementById("back_part").style.display = "block";
-}
-
-function BackToRadius()
+function BackToPart()
 {
     document.getElementById("back_part").style.display = "none";
     document.getElementById("section_1").style.display = "block";
@@ -79,7 +63,41 @@ function BackToRadius()
     document.getElementById("section_3").style.display = "none";
     document.getElementById("area_count").style.display = "none";
     document.getElementById("back_circuit").style.display = "none";
+    document.getElementById("diagonal_count").style.display = "none";
 }
+
+function BackToCircuit()
+{
+    var part = document.getElementById("part").value;
+    var circuit = document.getElementById("circuit").value;
+    div_part.innerHTML = part.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    div_circuit.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+
+    document.getElementById("part").value = part;
+    document.getElementById("circuit").value = circuit;
+    document.getElementById("section_1").style.display = "none";
+    document.getElementById("section_2").style.display = "block";
+    document.getElementById("section_3").style.display = "none";
+    document.getElementById("area_count").style.display = "block";
+    document.getElementById("back_circuit").style.display = "none";
+    document.getElementById("back_part").style.display = "block";
+    document.getElementById("diagonal_count").style.display = "none";
+}
+
+
+function BackToArea()
+{
+    document.getElementById("back_part").style.display = "none";
+    document.getElementById("section_1").style.display = "none";
+    document.getElementById("section_2").style.display = "none";
+    document.getElementById("section_3").style.display = "block";
+    document.getElementById("section_4").style.display = "none";
+    document.getElementById("area_count").style.display = "none";
+    document.getElementById("back_circuit").style.display = "block";
+    document.getElementById("back_area").style.display = "none";
+    document.getElementById("diagonal_count").style.display = "block";
+}
+
 
 </script>
 <div id="section_1">
@@ -93,11 +111,12 @@ function BackToRadius()
         </tr>
     </thead>
 </table>
-<input style="float: right" id="circuit_count" class="btn btn-default" type="button" value="Count circuit" onClick="countCircuit()">
+<input style="float: right" id="circuit_count" class="btn btn-default" type="button" value="Count circuit of square" onClick="countCircuit()">
 </div>
 
-<input style="color: black" type="hidden" id="radius" value="" />
+<input style="color: black" type="hidden" id="part" value="" />
 <input style="color: black" type="hidden" id="circuit" value="" />
+<input style="color: black" type="hidden" id="area" value="" />
 
 <div style="display: none;" id="section_2">
 <h4>Part <i class="fa fa-angle-right" aria-hidden="true"></i> Circuit</h4>
@@ -115,7 +134,6 @@ function BackToRadius()
         </tr>
     </tbody>
 </table>
-
 </div>
 
 <div style="display: none;" id="section_3">
@@ -124,7 +142,7 @@ function BackToRadius()
     <thead>
         <tr>
             <td style="padding: 4px 8px; font-weight: bold">Part:</td>
-            <td style="padding: 4px 8px; font-weight: bold"><i id="div_radius_two"></i> cm</td>
+            <td style="padding: 4px 8px; font-weight: bold"><i id="div_part_two"></i> cm</td>
         </tr>
         <tr>
             <td style="padding: 4px 8px; font-weight: bold">Circuit:</td>
@@ -139,8 +157,38 @@ function BackToRadius()
     </tbody>
 </table>
 </div>
+
+<div style="display: none;" id="section_4">
+<h4>Part <i class="fa fa-angle-right" aria-hidden="true"></i> Circuit <i class="fa fa-angle-right" aria-hidden="true"></i> Area <i class="fa fa-angle-right" aria-hidden="true"></i> Diagonal</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td style="padding: 4px 8px; font-weight: bold">Part:</td>
+            <td style="padding: 4px 8px; font-weight: bold"><i id="div_part_three"></i> cm</td>
+        </tr>
+        <tr>
+            <td style="padding: 4px 8px; font-weight: bold">Circuit:</td>
+            <td style="padding: 4px 8px; font-weight: bold"><i id="div_circuit_three"></i> cm</td>
+        </tr>
+        <tr>
+            <td style="padding: 4px 8px; font-weight: bold">Area:</td>
+            <td style="padding: 4px 8px; font-weight: bold"><i id="div_area_two"></i> cm<sup>2</sup></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 4px 8px">Diagonal:</td>
+            <td style="padding: 4px 8px"><i id="div_diagonal"></i> cm</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
 <input id="area_count" style="display:none; float:right" class="btn btn-default" type=button value="Count area of square" onClick="countArea()">
+<input id="diagonal_count" style="display:none; float:right" class="btn btn-default" type=button value="Count diagonal of square" onClick="countDiagonal()">
+
 <input id="back_circuit" style="display:none; float:left" class="btn btn-default" type=button value="Back to circuit" onClick="BackToCircuit()">
-<input id="back_part" style="display:none; float:left" class="btn btn-default" type=button value="Back to part" onClick="BackToRadius()">
+<input id="back_area" style="display:none; float:left" class="btn btn-default" type=button value="Back to area" onClick="BackToArea()">
+<input id="back_part" style="display:none; float:left" class="btn btn-default" type=button value="Back to part" onClick="BackToPart()">
 
 {% endblock content %}
