@@ -7,7 +7,8 @@ from leonardo.module.web.models import Page
 
 class MultiCalculatorWidget(Widget):
 
-    color = models.CharField(verbose_name=_("Color"), max_length=255, blank=True)
+    colorth = models.CharField(verbose_name=_("Color of table head"), max_length=255, blank=True)
+    colorthActive = models.CharField(verbose_name=_("Color of active table head"), max_length=255, blank=True)
 
     class Meta:
         abstract = True
