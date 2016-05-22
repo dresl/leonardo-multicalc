@@ -1,50 +1,64 @@
 {% extends widget.get_base_template %}
 
 {% block content %}
-
+<style type="text/css">
+    .responstable th {
+        background-color: {{ widget.colorth }};
+    }
+</style>
 <script>
 function countCircuit()
 {
     var radius_def = document.getElementById("radius_def");
     var div_radius = document.getElementById("div_radius");
-    var a = parseFloat(radius_def.value);
-    var radius = a;
-    div_radius.innerHTML = radius.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    var circuit = 2*Math.PI*radius;
-    div_circuit.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    var div_circuit = document.getElementById("div_circuit");
 
-    document.getElementById("radius").value = radius;
-    document.getElementById("circuit").value = circuit;
-    document.getElementById("section_1").style.display = "none";
-    document.getElementById("section_2").style.display = "block";
-    document.getElementById("area_count").style.display = "block";
-    document.getElementById("back_radius").style.display = "block";
+    if (radius_def.checkValidity() == false) {
+        document.getElementById("warning-message").style.display = "block";
+    } else {
+        var radius = parseFloat(radius_def.value);
+        var circuit = 2*Math.PI*radius;
+        div_radius.innerHTML = radius.toLocaleString();
+        div_circuit.innerHTML = circuit.toLocaleString();
+
+        document.getElementById("radius").value = radius;
+        document.getElementById("circuit").value = circuit;
+        document.getElementById("section_2").style.display = "block";
+        document.getElementById("section_1").style.display = "none";
+        document.getElementById("area_count").style.display = "block";
+        document.getElementById("back_radius").style.display = "block";
+        document.getElementById("warning-message").style.display = "none";
+    }
 }
 
 function countArea()
 {
     var radius = parseFloat(document.getElementById("radius").value);
     var circuit = parseFloat(document.getElementById("circuit").value);
+    var div_radius_two = document.getElementById("div_radius_two");
+    var div_circuit_two = document.getElementById("div_circuit_two");
+    var div_area = document.getElementById("div_area");
+    var area = parseFloat(Math.PI)*Math.pow(radius,2);
+    div_radius_two.innerHTML = radius.toLocaleString();
+    div_circuit_two.innerHTML = circuit.toLocaleString();
+    div_area.innerHTML = area.toLocaleString();
+
     document.getElementById("section_2").style.display = "none";
     document.getElementById("section_3").style.display = "block";
-    div_radius_two.innerHTML = radius.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    div_circuit_two.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    var area = parseFloat(Math.PI)*Math.pow(radius,2);
-    div_area.innerHTML = area.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
     document.getElementById("area_count").style.display = "none";
     document.getElementById("back_circuit").style.display = "block";
     document.getElementById("back_radius").style.display = "none";
+    document.getElementById("warning-message").style.display = "none";
 }
 
 function BackToCircuit()
 {
-    var radius_def = document.getElementById("radius_def");
+    var radius = parseFloat(document.getElementById("radius_def").value);
     var div_radius = document.getElementById("div_radius");
-    var a = parseFloat(radius_def.value);
-    var radius = a;
-    div_radius.innerHTML = radius.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    var div_circuit = document.getElementById("div_circuit");
     var circuit = 2*Math.PI*radius;
-    div_circuit.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    div_radius.innerHTML = radius.toLocaleString();
+    div_circuit.innerHTML = circuit.toLocaleString();
 
     document.getElementById("radius").value = radius;
     document.getElementById("circuit").value = circuit;
@@ -54,6 +68,7 @@ function BackToCircuit()
     document.getElementById("area_count").style.display = "block";
     document.getElementById("back_circuit").style.display = "none";
     document.getElementById("back_radius").style.display = "block";
+    document.getElementById("warning-message").style.display = "none";
 }
 
 function BackToRadius()
@@ -64,68 +79,72 @@ function BackToRadius()
     document.getElementById("section_3").style.display = "none";
     document.getElementById("area_count").style.display = "none";
     document.getElementById("back_circuit").style.display = "none";
+    document.getElementById("warning-message").style.display = "none";
 }
+
 
 </script>
 <div id="section_1">
-<h4>Radius</h4>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <td style="width: 40%;padding: 4px 8px; font-weight: bold">Radius:</td>
-            <td style="padding: 4px 8px; font-weight: bold"><input minlength="1" min="0" style="color: black" type="number" onkeydown = "if (event.keyCode == 13)
-                                document.getElementById('circuit_count').click()" id="radius_def" required> cm</td>
-        </tr>
-    </thead>
+<div style="display: none;" id="warning-message" class="alert alert-danger fade in" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <label id="label_warning" for="radius_def">Please, fill out radius field</label>
+</div>
+<table class="responstable">
+    <tr>
+        <th style="width: 33%; background-color: {{ widget.colorthActive }}">Radius</th>
+        <th style="width: 33%">Circuit <i class="fa fa-question-circle" aria-hidden="true"></i></th>
+        <th style="width: 33%">Area <i class="fa fa-question-circle" aria-hidden="true"></i></th>
+    </tr>
+
+    <tr id="tr_awesome">
+        <td><input placeholder="Enter a number" id="radius_def" min="0" type="number" onkeydown = "if (event.keyCode == 13)
+                                    document.getElementById('circuit_count').click()" required> cm</td>
+        <td> ??? </td>
+        <td> ??? </td>
+    </tr>
 </table>
-<input style="float: right" id="circuit_count" class="btn btn-default" type="button" value="Count circuit" onClick="countCircuit()">
+<input style="float: right" id="circuit_count" class="btn btn-primary" type="button" value="Count circuit" onClick="countCircuit()">
 </div>
 
 <input style="color: black" type="hidden" id="radius" value="" />
 <input style="color: black" type="hidden" id="circuit" value="" />
 
 <div style="display: none;" id="section_2">
-<h4>Radius <i class="fa fa-angle-right" aria-hidden="true"></i> Circuit</h4>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <td style="padding: 4px 8px; font-weight: bold">Radius:</td>
-            <td style="padding: 4px 8px; font-weight: bold"><i id="div_radius"></i> cm</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="padding: 4px 8px">Circuit:</td>
-            <td style="padding: 4px 8px"><i id="div_circuit"></i> cm</td>
-        </tr>
-    </tbody>
+<table class="responstable">
+    <tr>
+        <th style="width: 33%">Radius</th>
+        <th style="width: 33%; background-color: {{ widget.colorthActive }}">Circuit <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 33%">Area <i class="fa fa-question-circle" aria-hidden="true"></i></th>
+    </tr>
+    <tr>
+        <td><i id="div_radius"></i> cm</td>
+        <td><i id="div_circuit"></i> cm</td>
+        <td> ??? </td>
+    </tr>
 </table>
 </div>
 
 <div style="display: none;" id="section_3">
-<h4>Radius <i class="fa fa-angle-right" aria-hidden="true"></i> Circuit <i class="fa fa-angle-right" aria-hidden="true"></i> Area</h4>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <td style="padding: 4px 8px; font-weight: bold">Radius:</td>
-            <td style="padding: 4px 8px; font-weight: bold"><i id="div_radius_two"></i> cm</td>
-        </tr>
-        <tr>
-            <td style="padding: 4px 8px; font-weight: bold">Circuit:</td>
-            <td style="padding: 4px 8px; font-weight: bold"><i id="div_circuit_two"></i> cm</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="padding: 4px 8px">Area:</td>
-            <td style="padding: 4px 8px"><i id="div_area"></i> cm<sup>2</sup></td>
-        </tr>
-    </tbody>
+<table class="responstable">
+    <tr>
+        <th style="width: 33%">Radius</th>
+        <th style="width: 33%">Circuit <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 33%; background-color: {{ widget.colorthActive }}">Area <i class="fa fa-check" aria-hidden="true"></i></th>
+    </tr>
+    <tr>
+        <td><i id="div_radius_two"></i> cm</td>
+        <td><i id="div_circuit_two"></i> cm</td>
+        <td><i id="div_area"></i> cm<sup>2</sup></td>
+    </tr>
 </table>
 </div>
 
-<input id="area_count" style="display:none; float:right" class="btn btn-default" type=button value="Count area of circle" onClick="countArea()">
-<input id="back_circuit" style="display:none; float:left" class="btn btn-default" type=button value="Back to circuit" onClick="BackToCircuit()">
-<input id="back_radius" style="display:none; float:left" class="btn btn-default" type=button value="Back to radius" onClick="BackToRadius()">
+<input id="area_count" style="display:none; float:right" class="btn btn-primary" type=button value="Count area of circle" onClick="countArea()">
+<input id="back_circuit" style="display:none; float:left" class="btn btn-primary" type=button value="Back to circuit" onClick="BackToCircuit()">
+<input id="back_radius" style="display:none; float:left" class="btn btn-primary" type=button value="Back to radius" onClick="BackToRadius()">
+
+<script>
+  document.getElementById('warning').innerHTML = 'Please, fill out this field.';
+</script>
 
 {% endblock content %}
