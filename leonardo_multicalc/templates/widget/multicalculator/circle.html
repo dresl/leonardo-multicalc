@@ -93,13 +93,13 @@ function BackToCircleRadius()
 </div>
 <table class="responstable">
     <tr>
-        <th style="width: 33%; background-color: {{ widget.colorthActive }}">Radius</th>
-        <th style="width: 33%">Circuit <i class="fa fa-question-circle" aria-hidden="true"></i></th>
-        <th style="width: 33%">Area <i class="fa fa-question-circle" aria-hidden="true"></i></th>
+        <th style="width: 33%; background-color: {{ widget.colorthActive }}">Radius (cm)</th>
+        <th style="width: 33%">Circuit (cm) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
+        <th style="width: 33%">Area (cm<sup>2</sup>) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
     </tr>
     <tr id="tr_awesome">
         <td><input placeholder="Enter a number" id="radius_circle_def" min="0" type="number" step="0.0000000001" onkeydown = "if (event.keyCode == 13)
-                                    document.getElementById('circuit_count').click()" required> cm</td>
+                                    document.getElementById('circuit_count').click()" required></td>
         <td> ??? </td>
         <td> ??? </td>
     </tr>
@@ -113,13 +113,13 @@ function BackToCircleRadius()
 <div style="display: none;" id="section_2_circle">
 <table class="responstable">
     <tr>
-        <th style="width: 33%">Radius</th>
-        <th style="width: 33%; background-color: {{ widget.colorthActive }}">Circuit <i class="fa fa-check" aria-hidden="true"></i></th>
-        <th style="width: 33%">Area <i class="fa fa-question-circle" aria-hidden="true"></i></th>
+        <th style="width: 33%">Radius (cm)</th>
+        <th style="width: 33%; background-color: {{ widget.colorthActive }}">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 33%">Area (cm<sup>2</sup>) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
     </tr>
     <tr>
-        <td><i id="div_radius_circle"></i> cm</td>
-        <td><i id="div_circuit_circle"></i> cm</td>
+        <td><i id="div_radius_circle"></i></td>
+        <td><i id="div_circuit_circle"></i></td>
         <td> ??? </td>
     </tr>
 </table>
@@ -128,14 +128,14 @@ function BackToCircleRadius()
 <div style="display: none;" id="section_3_circle">
 <table class="responstable">
     <tr>
-        <th style="width: 33%">Radius</th>
-        <th style="width: 33%">Circuit <i class="fa fa-check" aria-hidden="true"></i></th>
-        <th style="width: 33%; background-color: {{ widget.colorthActive }}">Area <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 33%">Radius (cm)</th>
+        <th style="width: 33%">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 33%; background-color: {{ widget.colorthActive }}">Area (cm<sup>2</sup>) <i class="fa fa-check" aria-hidden="true"></i></th>
     </tr>
     <tr>
-        <td><i id="div_radius_circle_two"></i> cm</td>
-        <td><i id="div_circuit_circle_two"></i> cm</td>
-        <td><i id="div_area_circle"></i> cm<sup>2</sup></td>
+        <td><i id="div_radius_circle_two"></i></td>
+        <td><i id="div_circuit_circle_two"></i></td>
+        <td><i id="div_area_circle"></i></td>
     </tr>
 </table>
 </div>
