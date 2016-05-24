@@ -1,11 +1,12 @@
 {% extends widget.get_base_template %}
 
 {% block content %}
-<FORM style="color: black" NAME="Calc">
+<div>
+<FORM style="color: black;" NAME="Calc">
 <TABLE BORDER=4>
 <TR>
 <TD>
-<INPUT TYPE="text"   NAME="Input" Size="16">
+<INPUT style="text-align: right;" TYPE="text"   NAME="Input" Size="16">
 <br>
 </TD>
 </TR>
@@ -30,9 +31,12 @@
 <INPUT TYPE="button" NAME="zero"  VALUE="  0  " OnClick="Calc.Input.value += '0'">
 <INPUT TYPE="button" NAME="DoIt"  VALUE="  =  " OnClick="Calc.Input.value = eval(Calc.Input.value)">
 <INPUT TYPE="button" NAME="div"   VALUE="  /  " OnClick="Calc.Input.value += ' / '">
+<INPUT TYPE="button" NAME="bracket_left"   VALUE="  (  " OnClick="Calc.Input.value += ' ( '">
+<INPUT TYPE="button" NAME="bracket_right"   VALUE="  )  " OnClick="Calc.Input.value += ' ) '">
 <br>
 </TD>
 </TR>
 </TABLE>
 </FORM>
+</div>
 {% endblock %}
