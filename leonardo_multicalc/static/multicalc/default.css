@@ -155,10 +155,10 @@ If you like this solution, you might also want to check out the 1.0 version:
     background-color: #167F92;
     color: #FFF;
     padding: 1em;
+    text-align: center;
 }
 .responstable th:first-child {
     display: table-cell;
-    text-align: center;
 }
 .responstable th:nth-child(2) {
     display: table-cell;
@@ -184,7 +184,6 @@ If you like this solution, you might also want to check out the 1.0 version:
 }
 .responstable td:first-child {
     display: table-cell;
-    text-align: center;
     border-right: 1px solid #D9E4E6;
 }
 @media (min-width: 480px) {
@@ -193,7 +192,6 @@ If you like this solution, you might also want to check out the 1.0 version:
     }
 }
 .responstable th, .responstable td {
-    text-align: left;
     margin: .5em 1em;
 }
 @media (min-width: 480px) {
@@ -204,16 +202,28 @@ If you like this solution, you might also want to check out the 1.0 version:
 }
 
 .responstable input[type=number] {
-    border: none;
+    -moz-appearance:textfield;
     width: 33%;
+    -webkit-transition: width .2s ease-in-out;
+    transition: width .2s ease-in-out;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    text-align: center;
 }
 
 .responstable input[type=number]:focus {
     outline: none;
+    width: 50%;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
+.responstable input[type=number]::-webkit-inner-spin-button, 
+.responstable input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
     margin: 0; 
+}
+
+#label_warning:hover {
+    color: #6B0C0A;
+    cursor: pointer;
 }

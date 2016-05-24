@@ -1,194 +1,207 @@
 {% extends widget.get_base_template %}
 
 {% block content %}
-
+<style type="text/css">
+    .responstable th {
+        background-color: {{ widget.colorth }};
+    }
+    .responstable input[type=number] {
+        border-bottom: 2px solid {{ widget.colorth }};
+    }
+</style>
 <script>
-function countCircuit()
+function countSquareCircuit()
 {
-    var part_def = document.getElementById("part_def");
-    var part = parseFloat(part_def.value);
-    var circuit = 4*part;
-    div_part.innerHTML = part.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    div_circuit.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    var part_square_def = document.getElementById("part_square_def");
+    var div_part_square = document.getElementById("div_part_square");
+    var div_circuit_square = document.getElementById("div_circuit_square");
 
-    document.getElementById("part").value = part;
-    document.getElementById("circuit").value = circuit;
-    document.getElementById("section_1").style.display = "none";
-    document.getElementById("section_2").style.display = "block";
-    document.getElementById("area_count").style.display = "block";
-    document.getElementById("back_part").style.display = "block";
+    if (part_square_def.checkValidity() == false) {
+        document.getElementById("warning-message-square").style.display = "block";
+    } else {
+        var part = parseFloat(part_square_def.value);
+        var circuit = 4*part;
+        div_part_square.innerHTML = part.toLocaleString();
+        div_circuit_square.innerHTML = circuit.toLocaleString();
+
+        document.getElementById("part_square").value = part;
+        document.getElementById("circuit_square").value = circuit;
+        document.getElementById("section_1_square").style.display = "none";
+        document.getElementById("section_2_square").style.display = "block";
+        document.getElementById("area_count_square").style.display = "block";
+        document.getElementById("back_part_square").style.display = "block";
+        document.getElementById("warning-message-square").style.display = "none";
+    }
 }
 
-function countArea()
+function countSquareArea()
 {
-    var part = parseFloat(document.getElementById("part").value);
-    var circuit = parseFloat(document.getElementById("circuit").value);
+    var part = parseFloat(document.getElementById("part_square").value);
+    var circuit = parseFloat(document.getElementById("circuit_square").value);
     var area = part*part;
-    div_part_two.innerHTML = part.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    div_circuit_two.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    div_area.innerHTML = area.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    document.getElementById("section_2").style.display = "none";
-    document.getElementById("section_3").style.display = "block";
-    document.getElementById("area_count").style.display = "none";
-    document.getElementById("diagonal_count").style.display = "block";
-    document.getElementById("back_circuit").style.display = "block";
-    document.getElementById("back_part").style.display = "none";
-    document.getElementById("area").value = area;
+    div_part_square_two.innerHTML = part.toLocaleString();
+    div_circuit_square_two.innerHTML = circuit.toLocaleString();
+    div_area_square.innerHTML = area.toLocaleString();
+    document.getElementById("section_2_square").style.display = "none";
+    document.getElementById("section_3_square").style.display = "block";
+    document.getElementById("area_count_square").style.display = "none";
+    document.getElementById("diagonal_count_square").style.display = "block";
+    document.getElementById("back_circuit_square").style.display = "block";
+    document.getElementById("back_part_square").style.display = "none";
+    document.getElementById("area_square").value = area;
+    document.getElementById("warning-message-square").style.display = "none";
 }
 
-function countDiagonal()
+function countSquareDiagonal()
 {
-    var part = parseFloat(document.getElementById("part").value);
-    var circuit = parseFloat(document.getElementById("circuit").value);
-    var area = parseFloat(document.getElementById("area").value);
+    var part = parseFloat(document.getElementById("part_square").value);
+    var circuit = parseFloat(document.getElementById("circuit_square").value);
+    var area = parseFloat(document.getElementById("area_square").value);
     var diagonal = part*Math.sqrt(2);
-    div_part_three.innerHTML = part.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    div_circuit_three.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    div_area_two.innerHTML = area.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    div_diagonal.innerHTML = diagonal.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    document.getElementById("section_3").style.display = "none";
-    document.getElementById("section_4").style.display = "block";
-    document.getElementById("area_count").style.display = "none";
-    document.getElementById("diagonal_count").style.display = "none";
-    document.getElementById("back_area").style.display = "block";
-    document.getElementById("back_circuit").style.display = "none";
-    document.getElementById("back_part").style.display = "none";
+    div_part_square_three.innerHTML = part.toLocaleString();
+    div_circuit_square_three.innerHTML = circuit.toLocaleString();
+    div_area_square_two.innerHTML = area.toLocaleString();
+    div_diagonal.innerHTML = diagonal.toLocaleString();
+    document.getElementById("section_3_square").style.display = "none";
+    document.getElementById("section_4_square").style.display = "block";
+    document.getElementById("area_count_square").style.display = "none";
+    document.getElementById("diagonal_count_square").style.display = "none";
+    document.getElementById("back_area_square").style.display = "block";
+    document.getElementById("back_circuit_square").style.display = "none";
+    document.getElementById("back_part_square").style.display = "none";
+    document.getElementById("warning-message-square").style.display = "none";
 }
 
-function BackToPart()
+function BackToSquarePart()
 {
-    document.getElementById("back_part").style.display = "none";
-    document.getElementById("section_1").style.display = "block";
-    document.getElementById("section_2").style.display = "none";
-    document.getElementById("section_3").style.display = "none";
-    document.getElementById("area_count").style.display = "none";
-    document.getElementById("back_circuit").style.display = "none";
-    document.getElementById("diagonal_count").style.display = "none";
+    document.getElementById("back_part_square").style.display = "none";
+    document.getElementById("section_1_square").style.display = "block";
+    document.getElementById("section_2_square").style.display = "none";
+    document.getElementById("section_3_square").style.display = "none";
+    document.getElementById("area_count_square").style.display = "none";
+    document.getElementById("back_circuit_square").style.display = "none";
+    document.getElementById("diagonal_count_square").style.display = "none";
+    document.getElementById("warning-message-square").style.display = "none";
 }
 
-function BackToCircuit()
+function BackToSquareCircuit()
 {
-    var part = document.getElementById("part").value;
-    var circuit = document.getElementById("circuit").value;
-    div_part.innerHTML = part.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
-    div_circuit.innerHTML = circuit.toLocaleString().replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ').replace(',',' ');
+    var part = document.getElementById("part_square").value;
+    var circuit = document.getElementById("circuit_square").value;
+    div_part_square.innerHTML = part.toLocaleString();
+    div_circuit_square.innerHTML = circuit.toLocaleString();
 
-    document.getElementById("part").value = part;
-    document.getElementById("circuit").value = circuit;
-    document.getElementById("section_1").style.display = "none";
-    document.getElementById("section_2").style.display = "block";
-    document.getElementById("section_3").style.display = "none";
-    document.getElementById("area_count").style.display = "block";
-    document.getElementById("back_circuit").style.display = "none";
-    document.getElementById("back_part").style.display = "block";
-    document.getElementById("diagonal_count").style.display = "none";
+    document.getElementById("part_square").value = part;
+    document.getElementById("circuit_square").value = circuit;
+    document.getElementById("section_1_square").style.display = "none";
+    document.getElementById("section_2_square").style.display = "block";
+    document.getElementById("section_3_square").style.display = "none";
+    document.getElementById("area_count_square").style.display = "block";
+    document.getElementById("back_circuit_square").style.display = "none";
+    document.getElementById("back_part_square").style.display = "block";
+    document.getElementById("diagonal_count_square").style.display = "none";
+    document.getElementById("warning-message-square").style.display = "none";
 }
 
 
-function BackToArea()
+function BackToSquareArea()
 {
-    document.getElementById("back_part").style.display = "none";
-    document.getElementById("section_1").style.display = "none";
-    document.getElementById("section_2").style.display = "none";
-    document.getElementById("section_3").style.display = "block";
-    document.getElementById("section_4").style.display = "none";
-    document.getElementById("area_count").style.display = "none";
-    document.getElementById("back_circuit").style.display = "block";
-    document.getElementById("back_area").style.display = "none";
-    document.getElementById("diagonal_count").style.display = "block";
+    document.getElementById("back_part_square").style.display = "none";
+    document.getElementById("section_1_square").style.display = "none";
+    document.getElementById("section_2_square").style.display = "none";
+    document.getElementById("section_3_square").style.display = "block";
+    document.getElementById("section_4_square").style.display = "none";
+    document.getElementById("area_count_square").style.display = "none";
+    document.getElementById("back_circuit_square").style.display = "block";
+    document.getElementById("back_area_square").style.display = "none";
+    document.getElementById("diagonal_count_square").style.display = "block";
+    document.getElementById("warning-message-square").style.display = "none";
 }
-
 
 </script>
-<div id="section_1">
-<h4>Part</h4>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <td style="width: 40%;padding: 4px 8px; font-weight: bold">Part:</td>
-            <td style="padding: 4px 8px; font-weight: bold"><input minlength="1" min="0" style="color: black" type="number" onkeydown = "if (event.keyCode == 13)
-                                document.getElementById("circuit_count').click()" id="part_def" required> cm</td>
-        </tr>
-    </thead>
+<div id="section_1_square">
+<div style="display: none;" id="warning-message-square" class="alert alert-danger fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <label id="label_warning" for="part_square_def">Please, fill out part field correctly</label>
+</div>
+<table class="responstable">
+    <tr>
+        <th style="width: 25%; background-color: {{ widget.colorthActive }}">Part (cm)</th>
+        <th style="width: 25%">Circuit (cm) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
+        <th style="width: 25%">Area (cm<sup>2</sup>) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
+        <th style="width: 25%">Diagonal (cm) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
+    </tr>
+    <tr id="tr_awesome">
+        <td><input placeholder="Enter a number" id="part_square_def" min="0" type="number" step="0.0000000001" onkeydown = "if (event.keyCode == 13)
+                                    document.getElementById('circuit_count_square').click()" required></td>
+        <td> ??? </td>
+        <td> ??? </td>
+        <td> ??? </td>
+    </tr>
 </table>
-<input style="float: right" id="circuit_count" class="btn btn-default" type="button" value="Count circuit of square" onClick="countCircuit()">
+<input style="float: right" id="circuit_count_square" class="btn btn-default" type="button" value="Count circuit of square" onClick="countSquareCircuit()">
 </div>
 
-<input style="color: black" type="hidden" id="part" value="" />
-<input style="color: black" type="hidden" id="circuit" value="" />
-<input style="color: black" type="hidden" id="area" value="" />
+<input style="color: black" type="hidden" id="part_square" value="" />
+<input style="color: black" type="hidden" id="circuit_square" value="" />
+<input style="color: black" type="hidden" id="area_square" value="" />
 
-<div style="display: none;" id="section_2">
-<h4>Part <i class="fa fa-angle-right" aria-hidden="true"></i> Circuit</h4>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <td style="padding: 4px 8px; font-weight: bold">Part:</td>
-            <td style="padding: 4px 8px; font-weight: bold"><i id="div_part"></i> cm</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="padding: 4px 8px">Circuit:</td>
-            <td style="padding: 4px 8px"><i id="div_circuit"></i> cm</td>
-        </tr>
-    </tbody>
-</table>
-</div>
-
-<div style="display: none;" id="section_3">
-<h4>Part <i class="fa fa-angle-right" aria-hidden="true"></i> Circuit <i class="fa fa-angle-right" aria-hidden="true"></i> Area</h4>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <td style="padding: 4px 8px; font-weight: bold">Part:</td>
-            <td style="padding: 4px 8px; font-weight: bold"><i id="div_part_two"></i> cm</td>
-        </tr>
-        <tr>
-            <td style="padding: 4px 8px; font-weight: bold">Circuit:</td>
-            <td style="padding: 4px 8px; font-weight: bold"><i id="div_circuit_two"></i> cm</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="padding: 4px 8px">Area:</td>
-            <td style="padding: 4px 8px"><i id="div_area"></i> cm<sup>2</sup></td>
-        </tr>
-    </tbody>
+<div style="display: none;" id="section_2_square">
+<table class="responstable">
+    <tr>
+        <th style="width: 25%">Part (cm)</th>
+        <th style="width: 25%; background-color: {{ widget.colorthActive }}">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 25%">Area (cm<sup>2</sup>) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
+        <th style="width: 25%">Diagonal (cm) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
+    </tr>
+    <tr id="tr_awesome">
+        <td><i id="div_part_square"></i></td>
+        <td><i id="div_circuit_square"></i></td>
+        <td> ??? </td>
+        <td> ??? </td>
+    </tr>
 </table>
 </div>
 
-<div style="display: none;" id="section_4">
-<h4>Part <i class="fa fa-angle-right" aria-hidden="true"></i> Circuit <i class="fa fa-angle-right" aria-hidden="true"></i> Area <i class="fa fa-angle-right" aria-hidden="true"></i> Diagonal</h4>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <td style="padding: 4px 8px; font-weight: bold">Part:</td>
-            <td style="padding: 4px 8px; font-weight: bold"><i id="div_part_three"></i> cm</td>
-        </tr>
-        <tr>
-            <td style="padding: 4px 8px; font-weight: bold">Circuit:</td>
-            <td style="padding: 4px 8px; font-weight: bold"><i id="div_circuit_three"></i> cm</td>
-        </tr>
-        <tr>
-            <td style="padding: 4px 8px; font-weight: bold">Area:</td>
-            <td style="padding: 4px 8px; font-weight: bold"><i id="div_area_two"></i> cm<sup>2</sup></td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="padding: 4px 8px">Diagonal:</td>
-            <td style="padding: 4px 8px"><i id="div_diagonal"></i> cm</td>
-        </tr>
-    </tbody>
+<div style="display: none;" id="section_3_square">
+<table class="responstable">
+    <tr>
+        <th style="width: 25%">Part (cm)</th>
+        <th style="width: 25%">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 25%; background-color: {{ widget.colorthActive }}">Area (cm<sup>2</sup>) <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 25%">Diagonal (cm) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
+    </tr>
+    <tr id="tr_awesome">
+        <td><i id="div_part_square_two"></i></td>
+        <td><i id="div_circuit_square_two"></i></td>
+        <td><i id="div_area_square"></i></td>
+        <td> ??? </td>
+    </tr>
 </table>
 </div>
 
-<input id="area_count" style="display:none; float:right" class="btn btn-default" type=button value="Count area of square" onClick="countArea()">
-<input id="diagonal_count" style="display:none; float:right" class="btn btn-default" type=button value="Count diagonal of square" onClick="countDiagonal()">
+<div style="display: none;" id="section_4_square">
+<table class="responstable">
+    <tr>
+        <th style="width: 25%">Part (cm)</th>
+        <th style="width: 25%">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 25%">Area (cm<sup>2</sup>) <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 25%; background-color: {{ widget.colorthActive }}">Diagonal (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
+    </tr>
+    <tr id="tr_awesome">
+        <td><i id="div_part_square_three"></i></td>
+        <td><i id="div_circuit_square_three"></i></td>
+        <td><i id="div_area_square_two"></i></td>
+        <td><i id="div_diagonal"></i></td>
+    </tr>
+</table>
+</div>
 
-<input id="back_circuit" style="display:none; float:left" class="btn btn-default" type=button value="Back to circuit" onClick="BackToCircuit()">
-<input id="back_area" style="display:none; float:left" class="btn btn-default" type=button value="Back to area" onClick="BackToArea()">
-<input id="back_part" style="display:none; float:left" class="btn btn-default" type=button value="Back to part" onClick="BackToPart()">
+<input id="area_count_square" style="display:none; float:right" class="btn btn-default" type=button value="Count area of square" onClick="countSquareArea()">
+<input id="diagonal_count_square" style="display:none; float:right" class="btn btn-default" type=button value="Count diagonal of square" onClick="countSquareDiagonal()">
+
+<input id="back_circuit_square" style="display:none; float:left" class="btn btn-default" type=button value="Back to circuit" onClick="BackToSquareCircuit()">
+<input id="back_area_square" style="display:none; float:left" class="btn btn-default" type=button value="Back to area" onClick="BackToSquareArea()">
+<input id="back_part_square" style="display:none; float:left" class="btn btn-default" type=button value="Back to part" onClick="BackToSquarePart()">
 
 {% endblock content %}

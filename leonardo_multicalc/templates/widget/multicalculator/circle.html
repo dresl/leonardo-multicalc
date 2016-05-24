@@ -5,89 +5,91 @@
     .responstable th {
         background-color: {{ widget.colorth }};
     }
+    .responstable input[type=number] {
+        border-bottom: 2px solid {{ widget.colorth }};
+    }
 </style>
 <script>
-function countCircuit()
+function countCircleCircuit()
 {
-    var radius_def = document.getElementById("radius_def");
-    var div_radius = document.getElementById("div_radius");
-    var div_circuit = document.getElementById("div_circuit");
+    var radius_circle_def = document.getElementById("radius_circle_def");
+    var div_radius_circle = document.getElementById("div_radius_circle");
+    var div_circuit_circle = document.getElementById("div_circuit_circle");
 
-    if (radius_def.checkValidity() == false) {
-        document.getElementById("warning-message").style.display = "block";
+    if (radius_circle_def.checkValidity() == false) {
+        document.getElementById("warning-message-circle").style.display = "block";
     } else {
-        var radius = parseFloat(radius_def.value);
+        var radius = parseFloat(radius_circle_def.value);
         var circuit = 2*Math.PI*radius;
-        div_radius.innerHTML = radius.toLocaleString();
-        div_circuit.innerHTML = circuit.toLocaleString();
+        div_radius_circle.innerHTML = radius.toLocaleString();
+        div_circuit_circle.innerHTML = circuit.toLocaleString();
 
-        document.getElementById("radius").value = radius;
-        document.getElementById("circuit").value = circuit;
-        document.getElementById("section_2").style.display = "block";
-        document.getElementById("section_1").style.display = "none";
-        document.getElementById("area_count").style.display = "block";
-        document.getElementById("back_radius").style.display = "block";
-        document.getElementById("warning-message").style.display = "none";
+        document.getElementById("radius_circle").value = radius;
+        document.getElementById("circuit_circle").value = circuit;
+        document.getElementById("section_2_circle").style.display = "block";
+        document.getElementById("section_1_circle").style.display = "none";
+        document.getElementById("area_count_circle").style.display = "block";
+        document.getElementById("back_radius_circle").style.display = "block";
+        document.getElementById("warning-message-circle").style.display = "none";
     }
 }
 
-function countArea()
+function countCircleArea()
 {
-    var radius = parseFloat(document.getElementById("radius").value);
-    var circuit = parseFloat(document.getElementById("circuit").value);
-    var div_radius_two = document.getElementById("div_radius_two");
-    var div_circuit_two = document.getElementById("div_circuit_two");
-    var div_area = document.getElementById("div_area");
+    var radius = parseFloat(document.getElementById("radius_circle").value);
+    var circuit = parseFloat(document.getElementById("circuit_circle").value);
+    var div_radius_circle_two = document.getElementById("div_radius_circle_two");
+    var div_circuit_circle_two = document.getElementById("div_circuit_circle_two");
+    var div_area_circle = document.getElementById("div_area_circle");
     var area = parseFloat(Math.PI)*Math.pow(radius,2);
-    div_radius_two.innerHTML = radius.toLocaleString();
-    div_circuit_two.innerHTML = circuit.toLocaleString();
-    div_area.innerHTML = area.toLocaleString();
+    div_radius_circle_two.innerHTML = radius.toLocaleString();
+    div_circuit_circle_two.innerHTML = circuit.toLocaleString();
+    div_area_circle.innerHTML = area.toLocaleString();
 
-    document.getElementById("section_2").style.display = "none";
-    document.getElementById("section_3").style.display = "block";
-    document.getElementById("area_count").style.display = "none";
-    document.getElementById("back_circuit").style.display = "block";
-    document.getElementById("back_radius").style.display = "none";
-    document.getElementById("warning-message").style.display = "none";
+    document.getElementById("section_2_circle").style.display = "none";
+    document.getElementById("section_3_circle").style.display = "block";
+    document.getElementById("area_count_circle").style.display = "none";
+    document.getElementById("back_circuit_circle").style.display = "block";
+    document.getElementById("back_radius_circle").style.display = "none";
+    document.getElementById("warning-message-circle").style.display = "none";
 }
 
-function BackToCircuit()
+function BackToCircleCircuit()
 {
-    var radius = parseFloat(document.getElementById("radius_def").value);
-    var div_radius = document.getElementById("div_radius");
-    var div_circuit = document.getElementById("div_circuit");
+    var radius = parseFloat(document.getElementById("radius_circle_def").value);
+    var div_radius_circle = document.getElementById("div_radius_circle");
+    var div_circuit_circle = document.getElementById("div_circuit_circle");
     var circuit = 2*Math.PI*radius;
-    div_radius.innerHTML = radius.toLocaleString();
-    div_circuit.innerHTML = circuit.toLocaleString();
+    div_radius_circle.innerHTML = radius.toLocaleString();
+    div_circuit_circle.innerHTML = circuit.toLocaleString();
 
-    document.getElementById("radius").value = radius;
-    document.getElementById("circuit").value = circuit;
-    document.getElementById("section_1").style.display = "none";
-    document.getElementById("section_2").style.display = "block";
-    document.getElementById("section_3").style.display = "none";
-    document.getElementById("area_count").style.display = "block";
-    document.getElementById("back_circuit").style.display = "none";
-    document.getElementById("back_radius").style.display = "block";
-    document.getElementById("warning-message").style.display = "none";
+    document.getElementById("radius_circle").value = radius;
+    document.getElementById("circuit_circle").value = circuit;
+    document.getElementById("section_1_circle").style.display = "none";
+    document.getElementById("section_2_circle").style.display = "block";
+    document.getElementById("section_3_circle").style.display = "none";
+    document.getElementById("area_count_circle").style.display = "block";
+    document.getElementById("back_circuit_circle").style.display = "none";
+    document.getElementById("back_radius_circle").style.display = "block";
+    document.getElementById("warning-message-circle").style.display = "none";
 }
 
-function BackToRadius()
+function BackToCircleRadius()
 {
-    document.getElementById("back_radius").style.display = "none";
-    document.getElementById("section_1").style.display = "block";
-    document.getElementById("section_2").style.display = "none";
-    document.getElementById("section_3").style.display = "none";
-    document.getElementById("area_count").style.display = "none";
-    document.getElementById("back_circuit").style.display = "none";
-    document.getElementById("warning-message").style.display = "none";
+    document.getElementById("back_radius_circle").style.display = "none";
+    document.getElementById("section_1_circle").style.display = "block";
+    document.getElementById("section_2_circle").style.display = "none";
+    document.getElementById("section_3_circle").style.display = "none";
+    document.getElementById("area_count_circle").style.display = "none";
+    document.getElementById("back_circuit_circle").style.display = "none";
+    document.getElementById("warning-message-circle").style.display = "none";
 }
-
 
 </script>
-<div id="section_1">
-<div style="display: none;" id="warning-message" class="alert alert-danger fade in" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <label id="label_warning" for="radius_def">Please, fill out radius field</label>
+<div id="section_1_circle">
+<div style="display: none;" id="warning-message-circle" class="alert alert-danger fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <label id="label_warning" for="radius_circle_def">Please, fill out radius field correctly</label>
 </div>
 <table class="responstable">
     <tr>
@@ -95,21 +97,20 @@ function BackToRadius()
         <th style="width: 33%">Circuit <i class="fa fa-question-circle" aria-hidden="true"></i></th>
         <th style="width: 33%">Area <i class="fa fa-question-circle" aria-hidden="true"></i></th>
     </tr>
-
     <tr id="tr_awesome">
-        <td><input placeholder="Enter a number" id="radius_def" min="0" type="number" onkeydown = "if (event.keyCode == 13)
+        <td><input placeholder="Enter a number" id="radius_circle_def" min="0" type="number" step="0.0000000001" onkeydown = "if (event.keyCode == 13)
                                     document.getElementById('circuit_count').click()" required> cm</td>
         <td> ??? </td>
         <td> ??? </td>
     </tr>
 </table>
-<input style="float: right" id="circuit_count" class="btn btn-primary" type="button" value="Count circuit" onClick="countCircuit()">
+<input style="float: right" id="circuit_count" class="btn btn-primary" type="button" value="Count circuit" onClick="countCircleCircuit()">
 </div>
 
-<input style="color: black" type="hidden" id="radius" value="" />
-<input style="color: black" type="hidden" id="circuit" value="" />
+<input style="color: black" type="hidden" id="radius_circle" value="" />
+<input style="color: black" type="hidden" id="circuit_circle" value="" />
 
-<div style="display: none;" id="section_2">
+<div style="display: none;" id="section_2_circle">
 <table class="responstable">
     <tr>
         <th style="width: 33%">Radius</th>
@@ -117,14 +118,14 @@ function BackToRadius()
         <th style="width: 33%">Area <i class="fa fa-question-circle" aria-hidden="true"></i></th>
     </tr>
     <tr>
-        <td><i id="div_radius"></i> cm</td>
-        <td><i id="div_circuit"></i> cm</td>
+        <td><i id="div_radius_circle"></i> cm</td>
+        <td><i id="div_circuit_circle"></i> cm</td>
         <td> ??? </td>
     </tr>
 </table>
 </div>
 
-<div style="display: none;" id="section_3">
+<div style="display: none;" id="section_3_circle">
 <table class="responstable">
     <tr>
         <th style="width: 33%">Radius</th>
@@ -132,19 +133,15 @@ function BackToRadius()
         <th style="width: 33%; background-color: {{ widget.colorthActive }}">Area <i class="fa fa-check" aria-hidden="true"></i></th>
     </tr>
     <tr>
-        <td><i id="div_radius_two"></i> cm</td>
-        <td><i id="div_circuit_two"></i> cm</td>
-        <td><i id="div_area"></i> cm<sup>2</sup></td>
+        <td><i id="div_radius_circle_two"></i> cm</td>
+        <td><i id="div_circuit_circle_two"></i> cm</td>
+        <td><i id="div_area_circle"></i> cm<sup>2</sup></td>
     </tr>
 </table>
 </div>
 
-<input id="area_count" style="display:none; float:right" class="btn btn-primary" type=button value="Count area of circle" onClick="countArea()">
-<input id="back_circuit" style="display:none; float:left" class="btn btn-primary" type=button value="Back to circuit" onClick="BackToCircuit()">
-<input id="back_radius" style="display:none; float:left" class="btn btn-primary" type=button value="Back to radius" onClick="BackToRadius()">
-
-<script>
-  document.getElementById('warning').innerHTML = 'Please, fill out this field.';
-</script>
+<input id="area_count_circle" style="display:none; float:right" class="btn btn-primary" type=button value="Count area of circle" onClick="countCircleArea()">
+<input id="back_circuit_circle" style="display:none; float:left" class="btn btn-primary" type=button value="Back to circuit" onClick="BackToCircleCircuit()">
+<input id="back_radius_circle" style="display:none; float:left" class="btn btn-primary" type=button value="Back to radius" onClick="BackToCircleRadius()">
 
 {% endblock content %}
