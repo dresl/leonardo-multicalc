@@ -6,7 +6,7 @@ from leonardo.module.web.models import Widget
 from leonardo.module.web.models import Page
 
 COLOR_CHOICES = (
-    ('AliceBlue','<i>rgb(255, 64, 0)</i>'),
+    ('AliceBlue','AliceBlue'),
     ('AntiqueWhite', _('AntiqueWhite')),
     ('Aqua', _('Aqua')),
     ('Aquamarine', _('Aquamarine')),

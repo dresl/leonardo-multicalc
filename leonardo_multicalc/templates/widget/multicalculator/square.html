@@ -2,10 +2,10 @@
 
 {% block content %}
 <style type="text/css">
-    .responstable th {
+    .responstable.square-calc th {
         background-color: {{ widget.colorth }};
     }
-    .responstable input[type=number] {
+    .responstable.square-calc input[type=number] {
         border-bottom: 2px solid {{ widget.colorth }};
     }
 </style>
@@ -124,7 +124,7 @@ function BackToSquareArea()
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <label id="label_warning" for="part_square_def">Please, fill out part field correctly</label>
 </div>
-<table class="responstable">
+<table class="responstable square-calc">
     <tr>
         <th style="width: 25%; background-color: {{ widget.colorthActive }}">Part (cm)</th>
         <th style="width: 25%">Circuit (cm) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
@@ -139,7 +139,7 @@ function BackToSquareArea()
         <td> ??? </td>
     </tr>
 </table>
-<input style="float: right" id="circuit_count_square" class="btn btn-default" type="button" value="Count circuit of square" onClick="countSquareCircuit()">
+<input style="float: right" id="circuit_count_square" class="btn btn-primary" type="button" value="Count circuit of square" onClick="countSquareCircuit()">
 </div>
 
 <input style="color: black" type="hidden" id="part_square" value="" />
@@ -147,7 +147,7 @@ function BackToSquareArea()
 <input style="color: black" type="hidden" id="area_square" value="" />
 
 <div style="display: none;" id="section_2_square">
-<table class="responstable">
+<table class="responstable square-calc">
     <tr>
         <th style="width: 25%">Part (cm)</th>
         <th style="width: 25%; background-color: {{ widget.colorthActive }}">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
@@ -164,7 +164,7 @@ function BackToSquareArea()
 </div>
 
 <div style="display: none;" id="section_3_square">
-<table class="responstable">
+<table class="responstable square-calc">
     <tr>
         <th style="width: 25%">Part (cm)</th>
         <th style="width: 25%">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
@@ -181,7 +181,7 @@ function BackToSquareArea()
 </div>
 
 <div style="display: none;" id="section_4_square">
-<table class="responstable">
+<table class="responstable square-calc">
     <tr>
         <th style="width: 25%">Part (cm)</th>
         <th style="width: 25%">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
@@ -197,11 +197,11 @@ function BackToSquareArea()
 </table>
 </div>
 
-<input id="area_count_square" style="display:none; float:right" class="btn btn-default" type=button value="Count area of square" onClick="countSquareArea()">
-<input id="diagonal_count_square" style="display:none; float:right" class="btn btn-default" type=button value="Count diagonal of square" onClick="countSquareDiagonal()">
+<input id="area_count_square" style="display:none; float:right" class="btn btn-primary" type=button value="Count area of square" onClick="countSquareArea()">
+<input id="diagonal_count_square" style="display:none; float:right" class="btn btn-primary" type=button value="Count diagonal of square" onClick="countSquareDiagonal()">
 
-<input id="back_circuit_square" style="display:none; float:left" class="btn btn-default" type=button value="Back to circuit" onClick="BackToSquareCircuit()">
-<input id="back_area_square" style="display:none; float:left" class="btn btn-default" type=button value="Back to area" onClick="BackToSquareArea()">
-<input id="back_part_square" style="display:none; float:left" class="btn btn-default" type=button value="Back to part" onClick="BackToSquarePart()">
+<input id="back_circuit_square" style="display:none; float:left" class="btn btn-primary" type=button value="Back to circuit" onClick="BackToSquareCircuit()">
+<input id="back_area_square" style="display:none; float:left" class="btn btn-primary" type=button value="Back to area" onClick="BackToSquareArea()">
+<input id="back_part_square" style="display:none; float:left" class="btn btn-primary" type=button value="Back to part" onClick="BackToSquarePart()">
 
 {% endblock content %}

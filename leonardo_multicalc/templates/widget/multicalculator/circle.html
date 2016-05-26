@@ -2,10 +2,10 @@
 
 {% block content %}
 <style type="text/css">
-    .responstable th {
+    .responstable.circle-calc th {
         background-color: {{ widget.colorth }};
     }
-    .responstable input[type=number] {
+    .responstable.circle-calc input[type=number] {
         border-bottom: 2px solid {{ widget.colorth }};
     }
 </style>
@@ -91,7 +91,7 @@ function BackToCircleRadius()
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <label id="label_warning" for="radius_circle_def">Please, fill out radius field correctly</label>
 </div>
-<table class="responstable">
+<table class="responstable circle-calc">
     <tr>
         <th style="width: 33%; background-color: {{ widget.colorthActive }}">Radius (cm)</th>
         <th style="width: 33%">Circuit (cm) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
@@ -111,7 +111,7 @@ function BackToCircleRadius()
 <input style="color: black" type="hidden" id="circuit_circle" value="" />
 
 <div style="display: none;" id="section_2_circle">
-<table class="responstable">
+<table class="responstable circle-calc">
     <tr>
         <th style="width: 33%">Radius (cm)</th>
         <th style="width: 33%; background-color: {{ widget.colorthActive }}">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
@@ -126,7 +126,7 @@ function BackToCircleRadius()
 </div>
 
 <div style="display: none;" id="section_3_circle">
-<table class="responstable">
+<table class="responstable circle-calc">
     <tr>
         <th style="width: 33%">Radius (cm)</th>
         <th style="width: 33%">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
