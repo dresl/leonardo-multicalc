@@ -7,40 +7,60 @@
     {% if widget.position %}
         {{ widget.position }}
     {% endif %}
+    border-collapse: separate;
+    border-spacing: 8px;
+    background-color: {% if widget.colorth %}{{ widget.colorth }}{% else %}white{% endif %};
+    }
+    .simple-calc input {
+        background-color: {% if widget.colorthActive %}{{ widget.colorthActive }}{% else %}white{% endif %};
+        border-radius: 5px;
+        border-bottom: 2px solid #6B6B6B;
+        transition: all 1s cubic-bezier(0.4, 0, 0.08, 0.85);
+        -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.08, 0.85);
+    }
+    .simple-calc input:focus {
+        outline: none;
+    }
+
+    .simple-calc .keys:hover {
+        background-color: {% if widget.colorthActive %}{{ widget.colorthActive }}{% else %}white{% endif %};
+        border-bottom: 2px solid black;
+    }
+
 </style>
 <form name="calc">
-    <table class="simple-calc">
+    <table cellspacing="10" class="simple-calc">
         <tr>
-            <td>
-            <input style="text-align: right;" type="text"   name="input" size="16" readonly>
-            <br>
+            <td colspan="5">
+            <input style="text-align: right; padding-right: 5px;" type="text"   name="input" size="16">
             </td>
         </tr>
         <tr>
-            <td>
-                <input type="button" name="one"   value="  1  " onclick="calc.input.value += '1'">
-                <input type="button" name="two"   value="  2  " onclick="calc.input.value += '2'">
-                <input type="button" name="three" value="  3  " onclick="calc.input.value += '3'">
-                <input type="button" name="plus"  value="  +  " onclick="calc.input.value += ' + '">
-                <br>
-                <input type="button" name="four"  value="  4  " onclick="calc.input.value += '4'">
-                <input type="button" name="five"  value="  5  " onclick="calc.input.value += '5'">
-                <input type="button" name="six"   value="  6  " onclick="calc.input.value += '6'">
-                <input type="button" name="minus" value="  -  " onclick="calc.input.value += ' - '">
-                <br>
-                <input type="button" name="seven" value="  7  " onclick="calc.input.value += '7'">
-                <input type="button" name="eight" value="  8  " onclick="calc.input.value += '8'">
-                <input type="button" name="nine"  value="  9  " onclick="calc.input.value += '9'">
-                <input type="button" name="times" value="  x  " onclick="calc.input.value += ' * '">
-                <br>
-                <input type="button" name="clear" value="  c  " onclick="calc.input.value = ''">
-                <input type="button" name="zero"  value="  0  " onclick="calc.input.value += '0'">
-                <input type="button" name="doit"  value="  =  " onclick="calc.input.value = eval(calc.input.value)">
-                <input type="button" name="div"   value="  /  " onclick="calc.input.value += ' / '">
-                <input type="button" name="bracket_left"   value="  (  " onclick="calc.input.value += ' ( '">
-                <input type="button" name="bracket_right"   value="  )  " onclick="calc.input.value += ' ) '">
-                <br>
-            </td>
+            <td><input class="keys" type="button" name="one"   value="  1  " onclick="calc.input.value += '1'"></td>
+            <td><input class="keys" type="button" name="two"   value="  2  " onclick="calc.input.value += '2'"></td>
+            <td><input class="keys" type="button" name="three" value="  3  " onclick="calc.input.value += '3'"></td>
+            <td><input class="keys" type="button" name="plus"  value="  +  " onclick="calc.input.value += ' + '"></td>
+            <td><input class="keys" type="button" name="bracket_left"   value="  (  " onclick="calc.input.value += ' ( '"></td>
+        </tr>
+        <tr>
+            <td><input class="keys" type="button" name="four"  value="  4  " onclick="calc.input.value += '4'"></td>
+            <td><input class="keys" type="button" name="five"  value="  5  " onclick="calc.input.value += '5'"></td>
+            <td><input class="keys" type="button" name="six"   value="  6  " onclick="calc.input.value += '6'"></td>
+            <td><input class="keys" type="button" name="minus" value="  -  " onclick="calc.input.value += ' - '"></td>
+            <td><input class="keys" type="button" name="bracket_right"   value="  )  " onclick="calc.input.value += ' ) '"></td>
+        </tr>
+        <tr>
+            <td><input class="keys" type="button" name="seven" value="  7  " onclick="calc.input.value += '7'"></td>
+            <td><input class="keys" type="button" name="eight" value="  8  " onclick="calc.input.value += '8'"></td>
+            <td><input class="keys" type="button" name="nine"  value="  9  " onclick="calc.input.value += '9'"></td>
+            <td><input class="keys" type="button" name="times" value="  x  " onclick="calc.input.value += ' * '"></td>
+            <td><input class="keys" type="button" name="dot"   value="  .  " onclick="calc.input.value += '.'"></td>
+        </tr>
+        <tr>
+            <td><input class="keys" type="button" name="clear" value="  c  " onclick="calc.input.value = ''"></td>
+            <td><input class="keys" type="button" name="zero"  value="  0  " onclick="calc.input.value += '0'"></td>
+            <td><input class="keys" type="button" name="doit"  value="  =  " onclick="calc.input.value = eval(calc.input.value)"></td>
+            <td><input class="keys" type="button" name="div"   value="  /  " onclick="calc.input.value += ' / '"></td>
         </tr>
     </table>
 </form>
