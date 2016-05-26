@@ -6,7 +6,7 @@ from leonardo.module.web.models import Widget
 from leonardo.module.web.models import Page
 
 COLOR_CHOICES = (
-    ('AliceBlue','AliceBlue'),
+    ('AliceBlue', _('AliceBlue')),
     ('AntiqueWhite', _('AntiqueWhite')),
     ('Aqua', _('Aqua')),
     ('Aquamarine', _('Aquamarine')),
@@ -156,10 +156,15 @@ COLOR_CHOICES = (
     ('YellowGreen', _('YellowGreen')),
 )
 
+POSITION_CHOICES = (
+    ('margin: 0 auto;', _('Center')),
+)
+
 class MultiCalculatorWidget(Widget):
 
     colorth = models.CharField(verbose_name=_("Color of table head"), max_length=255, blank=True, choices=COLOR_CHOICES)
     colorthActive = models.CharField(verbose_name=_("Color of active table head"), max_length=255, blank=True, choices=COLOR_CHOICES)
+    position = models.CharField(verbose_name=_("Position"), max_length=255, blank=True, choices=POSITION_CHOICES)
 
     class Meta:
         abstract = True
