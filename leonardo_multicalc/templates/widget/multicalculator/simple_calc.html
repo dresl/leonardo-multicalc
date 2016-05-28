@@ -9,10 +9,10 @@
     {% endif %}
     border-collapse: separate;
     border-spacing: 8px;
-    background-color: {% if widget.colorth %}{{ widget.colorth }}{% else %}white{% endif %};
+    background-color: {% if widget.colorth %}rgb({{ widget.colorth }}){% else %}white{% endif %};
     }
     .simple-calc input {
-        background-color: {% if widget.colorthActive %}{{ widget.colorthActive }}{% else %}white{% endif %};
+        background-color: {% if widget.colorthActive %}rgb({{ widget.colorthActive }}){% else %}white{% endif %};
         border-radius: 5px;
         border-bottom: 2px solid #6B6B6B;
         transition: all .6s cubic-bezier(0.26, 1.2, 0.53, 0.95);

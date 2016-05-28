@@ -3,10 +3,10 @@
 {% block content %}
 <style type="text/css">
     .responstable.circle-calc th {
-        background-color: {{ widget.colorth }};
+        background-color: rgb({{ widget.colorth }});
     }
     .responstable.circle-calc input[type=number] {
-        border-bottom: 2px solid {{ widget.colorth }};
+        border-bottom: 2px solid rgb({{ widget.colorth }});
     }
 </style>
 <script>
@@ -93,7 +93,7 @@ function BackToCircleRadius()
 </div>
 <table class="responstable circle-calc">
     <tr>
-        <th style="width: 33%; background-color: {{ widget.colorthActive }}">Radius (cm)</th>
+        <th style="width: 33%; background-color: rgb({{ widget.colorthActive }})">Radius (cm)</th>
         <th style="width: 33%">Circuit (cm) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
         <th style="width: 33%">Area (cm<sup>2</sup>) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
     </tr>
@@ -114,7 +114,7 @@ function BackToCircleRadius()
 <table class="responstable circle-calc">
     <tr>
         <th style="width: 33%">Radius (cm)</th>
-        <th style="width: 33%; background-color: {{ widget.colorthActive }}">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 33%; background-color: rgb({{ widget.colorthActive }})">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
         <th style="width: 33%">Area (cm<sup>2</sup>) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
     </tr>
     <tr>
@@ -130,7 +130,7 @@ function BackToCircleRadius()
     <tr>
         <th style="width: 33%">Radius (cm)</th>
         <th style="width: 33%">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
-        <th style="width: 33%; background-color: {{ widget.colorthActive }}">Area (cm<sup>2</sup>) <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 33%; background-color: rgb({{ widget.colorthActive }})">Area (cm<sup>2</sup>) <i class="fa fa-check" aria-hidden="true"></i></th>
     </tr>
     <tr>
         <td><i id="div_radius_circle_two"></i></td>

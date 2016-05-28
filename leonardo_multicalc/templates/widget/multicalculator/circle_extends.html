@@ -3,10 +3,10 @@
 {% block content %}
 <style type="text/css">
     .responstable.circle-calc th {
-        background-color: {{ widget.colorth }};
+        background-color: rgb({{ widget.colorth }});
     }
     .responstable.circle-calc input[type=number] {
-        border-bottom: 2px solid {{ widget.colorth }};
+        border-bottom: 2px solid rgb({{ widget.colorth }});
     }
     i {
         font-weight: normal;
@@ -38,8 +38,8 @@ function countCircleCircuit()
         document.getElementById("radius_circle_def").style.display = "none";
         document.getElementById("div_radius_circle").style.display = "block";
 
-        document.getElementById("th_circle_radius").style.backgroundColor = "{{ widget.colorth }}";
-        document.getElementById("th_circle_circuit").style.backgroundColor = "{{ widget.colorthActive }}";
+        document.getElementById("th_circle_radius").style.backgroundColor = "rgb({{ widget.colorth }})";
+        document.getElementById("th_circle_circuit").style.backgroundColor = "rgb({{ widget.colorthActive }})";
 
         document.getElementById("fa_circle_circuit_question").style.display = "none";
         document.getElementById("fa_circle_circuit_check").style.display = "inline-block";
@@ -65,8 +65,8 @@ function countCircleArea()
     document.getElementById("back_radius_circle").style.display = "none";
     document.getElementById("warning-message-circle").style.display = "none";
 
-    document.getElementById("th_circle_circuit").style.backgroundColor = "{{ widget.colorth }}";
-    document.getElementById("th_circle_area").style.backgroundColor = "{{ widget.colorthActive }}";
+    document.getElementById("th_circle_circuit").style.backgroundColor = "rgb({{ widget.colorth }})";
+    document.getElementById("th_circle_area").style.backgroundColor = "rgb({{ widget.colorthActive }})";
 
     document.getElementById("fa_circle_circuit_question").style.display = "none";
     document.getElementById("fa_circle_circuit_check").style.display = "inline-block";
@@ -90,8 +90,8 @@ function BackToCircleCircuit()
     document.getElementById("circle_none_value_two").style.display = "block";
     document.getElementById("div_area_circle").style.display = "none";
 
-    document.getElementById("th_circle_circuit").style.backgroundColor = "{{ widget.colorthActive }}";
-    document.getElementById("th_circle_area").style.backgroundColor = "{{ widget.colorth }}";
+    document.getElementById("th_circle_circuit").style.backgroundColor = "rgb({{ widget.colorthActive }})";
+    document.getElementById("th_circle_area").style.backgroundColor = "rgb({{ widget.colorth }})";
 
     document.getElementById("fa_circle_circuit_question").style.display = "none";
     document.getElementById("fa_circle_circuit_check").style.display = "inline-block";
@@ -113,9 +113,9 @@ function BackToCircleRadius()
     document.getElementById("back_circuit_circle").style.display = "none";
     document.getElementById("warning-message-circle").style.display = "none";
 
-    document.getElementById("th_circle_circuit").style.backgroundColor = "{{ widget.colorth }}";
-    document.getElementById("th_circle_area").style.backgroundColor = "{{ widget.colorth }}";
-    document.getElementById("th_circle_radius").style.backgroundColor = "{{ widget.colorthActive }}";
+    document.getElementById("th_circle_circuit").style.backgroundColor = "rgb({{ widget.colorth }})";
+    document.getElementById("th_circle_area").style.backgroundColor = "rgb({{ widget.colorth }})";
+    document.getElementById("th_circle_radius").style.backgroundColor = "rgb({{ widget.colorthActive }})";
 
     document.getElementById("fa_circle_circuit_question").style.display = "inline-block";
     document.getElementById("fa_circle_circuit_check").style.display = "none";
@@ -131,7 +131,7 @@ function BackToCircleRadius()
 </div>
 <table class="responstable circle-calc">
     <tr>
-        <th id="th_circle_radius" style="width: 33%; background-color: {{ widget.colorthActive }}">Radius (cm)</th>
+        <th id="th_circle_radius" style="width: 33%; background-color: rgb({{ widget.colorthActive }})">Radius (cm)</th>
         <th id="th_circle_circuit" style="width: 33%">Circuit (cm) <i id="fa_circle_circuit_question" class="fa fa-question-circle"></i><i style="display: none;" id="fa_circle_circuit_check" class="fa fa-check"></i></th>
         <th id="th_circle_area" style="width: 33%">Area (cm<sup>2</sup>) <i id="fa_circle_area_question" class="fa fa-question-circle"></i><i style="display: none;" id="fa_circle_area_check" class="fa fa-check"></i></th>
     </tr>

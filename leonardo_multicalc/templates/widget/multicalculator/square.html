@@ -3,10 +3,10 @@
 {% block content %}
 <style type="text/css">
     .responstable.square-calc th {
-        background-color: {{ widget.colorth }};
+        background-color: rgb({{ widget.colorth }});
     }
     .responstable.square-calc input[type=number] {
-        border-bottom: 2px solid {{ widget.colorth }};
+        border-bottom: 2px solid rgb({{ widget.colorth }});
     }
 </style>
 <script>
@@ -126,7 +126,7 @@ function BackToSquareArea()
 </div>
 <table class="responstable square-calc">
     <tr>
-        <th style="width: 25%; background-color: {{ widget.colorthActive }}">Part (cm)</th>
+        <th style="width: 25%; background-color: rgb({{ widget.colorthActive }})">Part (cm)</th>
         <th style="width: 25%">Circuit (cm) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
         <th style="width: 25%">Area (cm<sup>2</sup>) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
         <th style="width: 25%">Diagonal (cm) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
@@ -150,7 +150,7 @@ function BackToSquareArea()
 <table class="responstable square-calc">
     <tr>
         <th style="width: 25%">Part (cm)</th>
-        <th style="width: 25%; background-color: {{ widget.colorthActive }}">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 25%; background-color: rgb({{ widget.colorthActive }})">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
         <th style="width: 25%">Area (cm<sup>2</sup>) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
         <th style="width: 25%">Diagonal (cm) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
     </tr>
@@ -168,7 +168,7 @@ function BackToSquareArea()
     <tr>
         <th style="width: 25%">Part (cm)</th>
         <th style="width: 25%">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
-        <th style="width: 25%; background-color: {{ widget.colorthActive }}">Area (cm<sup>2</sup>) <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 25%; background-color: rgb({{ widget.colorthActive }})">Area (cm<sup>2</sup>) <i class="fa fa-check" aria-hidden="true"></i></th>
         <th style="width: 25%">Diagonal (cm) <i class="fa fa-question-circle" aria-hidden="true"></i></th>
     </tr>
     <tr id="tr_awesome">
@@ -186,7 +186,7 @@ function BackToSquareArea()
         <th style="width: 25%">Part (cm)</th>
         <th style="width: 25%">Circuit (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
         <th style="width: 25%">Area (cm<sup>2</sup>) <i class="fa fa-check" aria-hidden="true"></i></th>
-        <th style="width: 25%; background-color: {{ widget.colorthActive }}">Diagonal (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
+        <th style="width: 25%; background-color: rgb({{ widget.colorthActive }})">Diagonal (cm) <i class="fa fa-check" aria-hidden="true"></i></th>
     </tr>
     <tr id="tr_awesome">
         <td><i id="div_part_square_three"></i></td>
