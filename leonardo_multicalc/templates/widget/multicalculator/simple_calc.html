@@ -15,15 +15,15 @@
         background-color: {% if widget.colorthActive %}{{ widget.colorthActive }}{% else %}white{% endif %};
         border-radius: 5px;
         border-bottom: 2px solid #6B6B6B;
-        transition: all 1s cubic-bezier(0.4, 0, 0.08, 0.85);
-        -moz-transition: all 0.2s cubic-bezier(0.4, 0, 0.08, 0.85);
+        transition: all .6s cubic-bezier(0.26, 1.2, 0.53, 0.95);
+        -moz-transition: all .6s cubic-bezier(0.26, 1.2, 0.53, 0.95);
     }
     .simple-calc input:focus {
         outline: none;
     }
 
     .simple-calc .keys:hover {
-        background-color: {% if widget.colorthActive %}{{ widget.colorthActive }}{% else %}white{% endif %};
+        background-color: #fff;
         border-bottom: 2px solid black;
     }
 
