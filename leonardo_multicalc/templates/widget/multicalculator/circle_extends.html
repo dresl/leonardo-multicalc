@@ -1,0 +1,155 @@
+{% extends widget.get_base_template %}
+
+{% block content %}
+<style type="text/css">
+    .responstable.circle-calc th {
+        background-color: {{ widget.colorth }};
+    }
+    .responstable.circle-calc input[type=number] {
+        border-bottom: 2px solid {{ widget.colorth }};
+    }
+    i {
+        font-weight: normal;
+    }
+</style>
+<script>
+function countCircleCircuit()
+{
+    var radius_circle_def = document.getElementById("radius_circle_def");
+    var div_radius_circle = document.getElementById("div_radius_circle");
+    var div_circuit_circle = document.getElementById("div_circuit_circle");
+
+    if (radius_circle_def.checkValidity() == false) {
+        document.getElementById("warning-message-circle").style.display = "block";
+    } else {
+        var radius = parseFloat(radius_circle_def.value);
+        var circuit = 2*Math.PI*radius;
+        div_radius_circle.innerHTML = radius.toLocaleString();
+        div_circuit_circle.innerHTML = circuit.toLocaleString();
+        
+        document.getElementById("radius_circle").value = radius;
+        document.getElementById("circuit_circle").value = circuit;
+        document.getElementById("div_circuit_circle").style.display = "block";
+        document.getElementById("circle_none_value_one").style.display = "none";
+        document.getElementById("area_count_circle").style.display = "block";
+        document.getElementById("circuit_count_circle").style.display = "none";
+        document.getElementById("back_radius_circle").style.display = "block";
+        document.getElementById("warning-message-circle").style.display = "none";
+        document.getElementById("radius_circle_def").style.display = "none";
+        document.getElementById("div_radius_circle").style.display = "block";
+
+        document.getElementById("th_circle_radius").style.backgroundColor = "{{ widget.colorth }}";
+        document.getElementById("th_circle_circuit").style.backgroundColor = "{{ widget.colorthActive }}";
+
+        document.getElementById("fa_circle_circuit_question").style.display = "none";
+        document.getElementById("fa_circle_circuit_check").style.display = "inline-block";
+        document.getElementById("fa_circle_area_question").style.display = "inline-block";
+        document.getElementById("fa_circle_area_check").style.display = "none";
+    }
+}
+
+function countCircleArea()
+{
+    var radius = parseFloat(document.getElementById("radius_circle").value);
+    var div_area_circle = document.getElementById("div_area_circle");
+    var area = parseFloat(Math.PI)*Math.pow(radius,2);
+
+    div_area_circle.innerHTML = area.toLocaleString();
+
+    document.getElementById("div_circuit_circle").style.display = "block";
+    document.getElementById("div_area_circle").style.display = "block";
+    document.getElementById("circle_none_value_one").style.display = "none";
+    document.getElementById("circle_none_value_two").style.display = "none";
+    document.getElementById("area_count_circle").style.display = "none";
+    document.getElementById("back_circuit_circle").style.display = "block";
+    document.getElementById("back_radius_circle").style.display = "none";
+    document.getElementById("warning-message-circle").style.display = "none";
+
+    document.getElementById("th_circle_circuit").style.backgroundColor = "{{ widget.colorth }}";
+    document.getElementById("th_circle_area").style.backgroundColor = "{{ widget.colorthActive }}";
+
+    document.getElementById("fa_circle_circuit_question").style.display = "none";
+    document.getElementById("fa_circle_circuit_check").style.display = "inline-block";
+    document.getElementById("fa_circle_area_question").style.display = "none";
+    document.getElementById("fa_circle_area_check").style.display = "inline-block";
+}
+
+function BackToCircleCircuit()
+{
+    var radius = parseFloat(document.getElementById("radius_circle_def").value);
+    var div_radius_circle = document.getElementById("div_radius_circle");
+    var div_circuit_circle = document.getElementById("div_circuit_circle");
+    var circuit = 2*Math.PI*radius;
+    div_radius_circle.innerHTML = radius.toLocaleString();
+    div_circuit_circle.innerHTML = circuit.toLocaleString();
+
+    document.getElementById("area_count_circle").style.display = "block";
+    document.getElementById("back_circuit_circle").style.display = "none";
+    document.getElementById("back_radius_circle").style.display = "block";
+    document.getElementById("warning-message-circle").style.display = "none";
+    document.getElementById("circle_none_value_two").style.display = "block";
+    document.getElementById("div_area_circle").style.display = "none";
+
+    document.getElementById("th_circle_circuit").style.backgroundColor = "{{ widget.colorthActive }}";
+    document.getElementById("th_circle_area").style.backgroundColor = "{{ widget.colorth }}";
+
+    document.getElementById("fa_circle_circuit_question").style.display = "none";
+    document.getElementById("fa_circle_circuit_check").style.display = "inline-block";
+    document.getElementById("fa_circle_area_question").style.display = "inline-block";
+    document.getElementById("fa_circle_area_check").style.display = "none";
+}
+
+function BackToCircleRadius()
+{
+    document.getElementById("back_radius_circle").style.display = "none";
+    document.getElementById("circle_none_value_one").style.display = "block";
+    document.getElementById("div_circuit_circle").style.display = "none";
+    document.getElementById("circle_none_value_two").style.display = "block";
+    document.getElementById("div_area_circle").style.display = "none";
+    document.getElementById("div_radius_circle").style.display = "none";
+    document.getElementById("radius_circle_def").style.display = "inline-block";
+    document.getElementById("circuit_count_circle").style.display = "block";
+    document.getElementById("area_count_circle").style.display = "none";
+    document.getElementById("back_circuit_circle").style.display = "none";
+    document.getElementById("warning-message-circle").style.display = "none";
+
+    document.getElementById("th_circle_circuit").style.backgroundColor = "{{ widget.colorth }}";
+    document.getElementById("th_circle_area").style.backgroundColor = "{{ widget.colorth }}";
+    document.getElementById("th_circle_radius").style.backgroundColor = "{{ widget.colorthActive }}";
+
+    document.getElementById("fa_circle_circuit_question").style.display = "inline-block";
+    document.getElementById("fa_circle_circuit_check").style.display = "none";
+    document.getElementById("fa_circle_area_question").style.display = "inline-block";
+    document.getElementById("fa_circle_area_check").style.display = "none";
+}
+
+</script>
+<div id="section_1_circle">
+<div style="display: none;" id="warning-message-circle" class="alert alert-danger fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <label id="label_warning" for="radius_circle_def">Please, fill out radius field correctly</label>
+</div>
+<table class="responstable circle-calc">
+    <tr>
+        <th id="th_circle_radius" style="width: 33%; background-color: {{ widget.colorthActive }}">Radius (cm)</th>
+        <th id="th_circle_circuit" style="width: 33%">Circuit (cm) <i id="fa_circle_circuit_question" class="fa fa-question-circle"></i><i style="display: none;" id="fa_circle_circuit_check" class="fa fa-check"></i></th>
+        <th id="th_circle_area" style="width: 33%">Area (cm<sup>2</sup>) <i id="fa_circle_area_question" class="fa fa-question-circle"></i><i style="display: none;" id="fa_circle_area_check" class="fa fa-check"></i></th>
+    </tr>
+    <tr id="tr_awesome">
+        <td><input placeholder="Enter a number" id="radius_circle_def" min="0" type="number" step="0.0000000001" onkeydown = "if (event.keyCode == 13)
+                                    document.getElementById('circuit_count').click()" required><i id="div_radius_circle"></i></td>
+        <td><i id="circle_none_value_one">???</i><i id="div_circuit_circle"></i></td>
+        <td><i id="circle_none_value_two">???</i><i id="div_area_circle"></td>
+    </tr>
+</table>
+</div>
+
+<input style="color: black" type="hidden" id="radius_circle" value="" />
+<input style="color: black" type="hidden" id="circuit_circle" value="" />
+
+<input id="circuit_count_circle" style="float: right" class="btn btn-primary" type="button" value="Count circuit" onClick="countCircleCircuit()">
+<input id="area_count_circle" style="display:none; float:right" class="btn btn-primary" type=button value="Count area of circle" onClick="countCircleArea()">
+<input id="back_radius_circle" style="display:none; float:left" class="btn btn-primary" type=button value="Back to radius" onClick="BackToCircleRadius()">
+<input id="back_circuit_circle" style="display:none; float:left" class="btn btn-primary" type=button value="Back to circuit" onClick="BackToCircleCircuit()">
+
+{% endblock content %}
