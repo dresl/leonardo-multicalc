@@ -3,7 +3,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from leonardo.module.web.models import Widget
-from leonardo.module.web.models import Page
 
 COLOR_CHOICES = (
     ('255, 182, 193', _('Lightpink')),
